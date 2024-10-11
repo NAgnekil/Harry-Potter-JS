@@ -1,184 +1,182 @@
 <!DOCTYPE html>
 <html lang="sv">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Harry Potter Böcker</title>
-        <!-- Bootstrap CSS -->
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-        />
-        <!-- Custom CSS -->
-        <link rel="stylesheet" href="styles.css" />
-    </head>
-    <body>
-        <!-- Navbar: Huvudnavigeringen längst upp på sidan -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container-fluid">
-                <!-- Webbplatsens logotyp eller namn -->
-                <a class="navbar-brand" href="#">Harry Potter</a>
-                <!-- Knappen som visas på mindre skärmar för att toggla navigeringen -->
-                <button
-                    class="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarNav"
-                    aria-controls="navbarNav"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                >
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <!-- Navigationslänkar -->
-                <div
-                    class="collapse navbar-collapse justify-content-end"
-                    id="navbarNav"
-                >
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a
-                                class="nav-link active"
-                                aria-current="page"
-                                href="#"
-                                >Hem</a
-                            >
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Böcker</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Om Harry</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        <!-- Hero Image: Stor bakgrundsbild med titel -->
-        <header
-            class="hero-image d-flex align-items-center justify-content-center text-white"
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Harry Potter Böcker</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Navbar: Huvudnavigeringen längst upp på sidan -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <!-- Webbplatsens logotyp eller namn -->
+        <a class="navbar-brand" href="#">Harry Potter</a>
+        <!-- Knappen som visas på mindre skärmar för att toggla navigeringen -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
         >
-            <h1 class="display-4">Harry Potter Böcker</h1>
-        </header>
-
-        <!-- Main Content: Huvudinnehållet på sidan -->
-        <main class="container my-5">
-            <!-- Kontrollpanel för sökning, filtrering och sortering -->
-            <div class="row mb-4">
-                <!-- Sökfält: Låt användare söka efter böcker baserat på titel -->
-                <div class="col-md-4 mb-2">
-                    <input
-                        type="text"
-                        id="search-input"
-                        class="form-control"
-                        placeholder="Sök efter titel..."
-                    />
-                </div>
-                <!-- Filter efter Utgivningsår: Låt användare filtrera böcker baserat på år -->
-                <div class="col-md-4 mb-2">
-                    <select id="filter-year" class="form-select">
-                        <option value="">Alla Utgivningsår</option>
-                        <!-- Dynamiskt genererade år fylls här via JavaScript -->
-                    </select>
-                </div>
-                <!-- Sorteringsalternativ: Låt användare sortera böcker -->
-                <div class="col-md-4 mb-2">
-                    <select id="sort-options" class="form-select">
-                        <option value="">Sortera efter</option>
-                        <option value="title-asc">Titel A-Z</option>
-                        <option value="title-desc">Titel Z-A</option>
-                        <option value="releaseDate-asc">
-                            Utgivningsdatum (Äldsta först)
-                        </option>
-                        <option value="releaseDate-desc">
-                            Utgivningsdatum (Nyaste först)
-                        </option>
-                    </select>
-                </div>
-            </div>
-
-            <!-- Böcker Container: Här laddas bokkorten dynamiskt -->
-            <div id="books-container" class="row">
-                <!-- Bokkort läggs till här via JavaScript -->
-            </div>
-        </main>
-
-        <!-- Modal för Bokdetaljer: Popup-fönster för att visa detaljerad information om en bok -->
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Navigationslänkar -->
         <div
-            class="modal fade"
-            id="bookModal"
-            tabindex="-1"
-            aria-labelledby="bookModalLabel"
-            aria-hidden="true"
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
         >
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <!-- Modal Header: Innehåller titel och stängningsknapp -->
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="bookModalLabel">
-                            Bokdetaljer
-                        </h5>
-                        <button
-                            type="button"
-                            class="btn-close"
-                            data-bs-dismiss="modal"
-                            aria-label="Stäng"
-                        ></button>
-                    </div>
-                    <!-- Modal Body: Innehåller bokens detaljer -->
-                    <div class="modal-body">
-                        <div class="row">
-                            <!-- Bokomslag -->
-                            <div class="col-md-4">
-                                <img
-                                    id="modal-cover"
-                                    src=""
-                                    alt="Bokomslag"
-                                    class="img-fluid"
-                                />
-                            </div>
-                            <!-- Bokinformation -->
-                            <div class="col-md-8">
-                                <h3 id="modal-title"></h3>
-                                <p>
-                                    <strong>Originaltitel:</strong>
-                                    <span id="modal-originalTitle"></span>
-                                </p>
-                                <p>
-                                    <strong>Utgivningsdatum:</strong>
-                                    <span id="modal-releaseDate"></span>
-                                </p>
-                                <p>
-                                    <strong>Sidor:</strong>
-                                    <span id="modal-pages"></span>
-                                </p>
-                                <p>
-                                    <strong>Genre:</strong>
-                                    <span id="modal-genre"></span>
-                                </p>
-                                <hr />
-                                <p id="modal-description"></p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Modal Footer: Stängningsknapp -->
-                    <div class="modal-footer">
-                        <button
-                            type="button"
-                            class="btn btn-secondary"
-                            data-bs-dismiss="modal"
-                        >
-                            Stäng
-                        </button>
-                    </div>
-                </div>
-            </div>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Hem</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Böcker</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Om Harry</a>
+            </li>
+          </ul>
         </div>
+      </div>
+    </nav>
 
-        <!-- Bootstrap JS Bundle (inklusive Popper) -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Custom JavaScript -->
-        <script src="script.js"></script>
-    </body>
+    <!-- Hero Image: Stor bakgrundsbild med titel -->
+    <header
+      class="hero-image d-flex align-items-center justify-content-center text-white"
+    >
+      <h1 class="display-4">Harry Potter Böcker</h1>
+    </header>
+
+    <!-- Main Content: Huvudinnehållet på sidan -->
+    <main class="container my-5">
+      <!-- Kontrollpanel för sökning, filtrering och sortering -->
+      <div class="row mb-4">
+        <!-- Sökfält: Låt användare söka efter böcker baserat på titel -->
+        <div class="col-md-4 mb-2">
+          <input
+            type="text"
+            id="search-input"
+            class="form-control"
+            placeholder="Sök efter titel..."
+            onchange="applyFilters()"
+          />
+        </div>
+        <!-- Filter efter Utgivningsår: Låt användare filtrera böcker baserat på år -->
+        <div class="col-md-4 mb-2">
+          <select
+            id="filter-year"
+            class="form-select"
+            onchange="applyFilters()"
+          >
+            <option value="">Alla Utgivningsår</option>
+            <!-- Dynamiskt genererade år fylls här via JavaScript -->
+          </select>
+        </div>
+        <!-- Sorteringsalternativ: Låt användare sortera böcker -->
+        <div class="col-md-4 mb-2">
+          <select id="sort-options" class="form-select" onchange="applyFilters()">
+            <option value="">Sortera efter</option>
+            <option value="title-asc">Titel A-Z</option>
+            <option value="title-desc">Titel Z-A</option>
+            <option value="releaseDate-asc">
+              Utgivningsdatum (Äldsta först)
+            </option>
+            <option value="releaseDate-desc">
+              Utgivningsdatum (Nyaste först)
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Böcker Container: Här laddas bokkorten dynamiskt -->
+      <div id="books-container" class="row">
+        <!-- Bokkort läggs till här via JavaScript -->
+      </div>
+    </main>
+
+    <!-- Modal för Bokdetaljer: Popup-fönster för att visa detaljerad information om en bok -->
+    <div
+      class="modal fade"
+      id="bookModal"
+      tabindex="-1"
+      aria-labelledby="bookModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <!-- Modal Header: Innehåller titel och stängningsknapp -->
+          <div class="modal-header">
+            <h5 class="modal-title" id="bookModalLabel">Bokdetaljer</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Stäng"
+            ></button>
+          </div>
+          <!-- Modal Body: Innehåller bokens detaljer -->
+          <div class="modal-body">
+            <div class="row">
+              <!-- Bokomslag -->
+              <div class="col-md-4">
+                <img
+                  id="modal-cover"
+                  src=""
+                  alt="Bokomslag"
+                  class="img-fluid"
+                />
+              </div>
+              <!-- Bokinformation -->
+              <div class="col-md-8">
+                <h3 id="modal-title"></h3>
+                <p>
+                  <strong>Originaltitel:</strong>
+                  <span id="modal-originalTitle"></span>
+                </p>
+                <p>
+                  <strong>Utgivningsdatum:</strong>
+                  <span id="modal-releaseDate"></span>
+                </p>
+                <p>
+                  <strong>Sidor:</strong>
+                  <span id="modal-pages"></span>
+                </p>
+                <p>
+                  <strong>Genre:</strong>
+                  <span id="modal-genre"></span>
+                </p>
+                <hr />
+                <p id="modal-description"></p>
+              </div>
+            </div>
+          </div>
+          <!-- Modal Footer: Stängningsknapp -->
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Stäng
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle (inklusive Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+  </body>
 </html>
